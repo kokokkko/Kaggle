@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "26d32ecf",
+   "id": "f91db036",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2024-06-03T02:01:54.275616Z",
-     "iopub.status.busy": "2024-06-03T02:01:54.275202Z",
-     "iopub.status.idle": "2024-06-03T02:01:56.393082Z",
-     "shell.execute_reply": "2024-06-03T02:01:56.392244Z"
+     "iopub.execute_input": "2024-06-03T05:44:57.858679Z",
+     "iopub.status.busy": "2024-06-03T05:44:57.857797Z",
+     "iopub.status.idle": "2024-06-03T05:44:59.800257Z",
+     "shell.execute_reply": "2024-06-03T05:44:59.799442Z"
     },
     "papermill": {
-     "duration": 2.125615,
-     "end_time": "2024-06-03T02:01:56.395498",
+     "duration": 1.949849,
+     "end_time": "2024-06-03T05:44:59.802636",
      "exception": false,
-     "start_time": "2024-06-03T02:01:54.269883",
+     "start_time": "2024-06-03T05:44:57.852787",
      "status": "completed"
     },
     "tags": []
@@ -28,25 +28,25 @@
     "import xgboost as xgb\n",
     "from sklearn.model_selection import train_test_split\n",
     "from sklearn.preprocessing import LabelEncoder\n",
-    "from sklearn.metrics import accuracy_score\n"
+    "from sklearn.metrics import accuracy_score"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "4fc48055",
+   "id": "126ebc4f",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-06-03T02:01:56.403692Z",
-     "iopub.status.busy": "2024-06-03T02:01:56.403195Z",
-     "iopub.status.idle": "2024-06-03T02:01:56.994070Z",
-     "shell.execute_reply": "2024-06-03T02:01:56.993214Z"
+     "iopub.execute_input": "2024-06-03T05:44:59.809578Z",
+     "iopub.status.busy": "2024-06-03T05:44:59.809195Z",
+     "iopub.status.idle": "2024-06-03T05:45:00.394135Z",
+     "shell.execute_reply": "2024-06-03T05:45:00.392991Z"
     },
     "papermill": {
-     "duration": 0.597824,
-     "end_time": "2024-06-03T02:01:56.996803",
+     "duration": 0.591225,
+     "end_time": "2024-06-03T05:45:00.396928",
      "exception": false,
-     "start_time": "2024-06-03T02:01:56.398979",
+     "start_time": "2024-06-03T05:44:59.805703",
      "status": "completed"
     },
     "tags": []
@@ -60,76 +60,75 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "80f5961b",
+   "id": "3663808e",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-06-03T02:01:57.004975Z",
-     "iopub.status.busy": "2024-06-03T02:01:57.004608Z",
-     "iopub.status.idle": "2024-06-03T02:01:57.047639Z",
-     "shell.execute_reply": "2024-06-03T02:01:57.046737Z"
+     "iopub.execute_input": "2024-06-03T05:45:00.405260Z",
+     "iopub.status.busy": "2024-06-03T05:45:00.404528Z",
+     "iopub.status.idle": "2024-06-03T05:45:00.454871Z",
+     "shell.execute_reply": "2024-06-03T05:45:00.454034Z"
     },
     "papermill": {
-     "duration": 0.049605,
-     "end_time": "2024-06-03T02:01:57.049886",
+     "duration": 0.05727,
+     "end_time": "2024-06-03T05:45:00.457502",
      "exception": false,
-     "start_time": "2024-06-03T02:01:57.000281",
+     "start_time": "2024-06-03T05:45:00.400232",
      "status": "completed"
     },
     "tags": []
    },
    "outputs": [],
    "source": [
-    "\n",
     "label_encoder = LabelEncoder()\n",
     "train_data['Target'] = label_encoder.fit_transform(train_data['Target'])\n",
     "\n",
     "X = train_data.drop(columns=['id', 'Target'])\n",
     "y = train_data['Target']\n",
     "\n",
-    "X_test = test_data.drop(columns=['id'])\n"
+    "X_test = test_data.drop(columns=['id'])"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "fe39baac",
+   "id": "f95f0d21",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-06-03T02:01:57.058991Z",
-     "iopub.status.busy": "2024-06-03T02:01:57.058635Z",
-     "iopub.status.idle": "2024-06-03T02:01:57.089171Z",
-     "shell.execute_reply": "2024-06-03T02:01:57.088338Z"
+     "iopub.execute_input": "2024-06-03T05:45:00.465735Z",
+     "iopub.status.busy": "2024-06-03T05:45:00.465140Z",
+     "iopub.status.idle": "2024-06-03T05:45:00.490884Z",
+     "shell.execute_reply": "2024-06-03T05:45:00.489868Z"
     },
     "papermill": {
-     "duration": 0.037686,
-     "end_time": "2024-06-03T02:01:57.091892",
+     "duration": 0.032308,
+     "end_time": "2024-06-03T05:45:00.493336",
      "exception": false,
-     "start_time": "2024-06-03T02:01:57.054206",
+     "start_time": "2024-06-03T05:45:00.461028",
      "status": "completed"
     },
     "tags": []
    },
    "outputs": [],
    "source": [
-    "X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)\n"
+    "X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "f98cb04b",
+   "id": "9b5e1d23",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-06-03T02:01:57.100701Z",
-     "iopub.status.busy": "2024-06-03T02:01:57.100309Z",
-     "iopub.status.idle": "2024-06-03T02:01:59.745365Z",
-     "shell.execute_reply": "2024-06-03T02:01:59.744388Z"
+     "iopub.execute_input": "2024-06-03T05:45:00.500783Z",
+     "iopub.status.busy": "2024-06-03T05:45:00.500488Z",
+     "iopub.status.idle": "2024-06-03T05:45:03.021304Z",
+     "shell.execute_reply": "2024-06-03T05:45:03.020530Z"
     },
     "papermill": {
-     "duration": 2.652255,
-     "end_time": "2024-06-03T02:01:59.747716",
+     "duration": 2.526927,
+     "end_time": "2024-06-03T05:45:03.023394",
      "exception": false,
-     "start_time": "2024-06-03T02:01:57.095461",
+     "start_time": "2024-06-03T05:45:00.496467",
      "status": "completed"
     },
     "tags": []
@@ -181,25 +180,25 @@
    ],
    "source": [
     "model = xgb.XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')\n",
-    "model.fit(X_train, y_train)\n"
+    "model.fit(X_train, y_train)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "bafddaec",
+   "id": "5e92eb88",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-06-03T02:01:59.756593Z",
-     "iopub.status.busy": "2024-06-03T02:01:59.756253Z",
-     "iopub.status.idle": "2024-06-03T02:01:59.818124Z",
-     "shell.execute_reply": "2024-06-03T02:01:59.817099Z"
+     "iopub.execute_input": "2024-06-03T05:45:03.031308Z",
+     "iopub.status.busy": "2024-06-03T05:45:03.030989Z",
+     "iopub.status.idle": "2024-06-03T05:45:03.089581Z",
+     "shell.execute_reply": "2024-06-03T05:45:03.088791Z"
     },
     "papermill": {
-     "duration": 0.06944,
-     "end_time": "2024-06-03T02:01:59.820993",
+     "duration": 0.065182,
+     "end_time": "2024-06-03T05:45:03.091997",
      "exception": false,
-     "start_time": "2024-06-03T02:01:59.751553",
+     "start_time": "2024-06-03T05:45:03.026815",
      "status": "completed"
     },
     "tags": []
@@ -209,32 +208,32 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation Accuracy: 0.8331808677469943\n"
+      "{0.8331808677469943}\n"
      ]
     }
    ],
    "source": [
     "y_pred = model.predict(X_val)\n",
     "accuracy = accuracy_score(y_val, y_pred)\n",
-    "print(f'Validation Accuracy: {accuracy}')\n"
+    "print({accuracy})\n"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "c57cf3ab",
+   "id": "f569d8a3",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-06-03T02:01:59.830833Z",
-     "iopub.status.busy": "2024-06-03T02:01:59.830486Z",
-     "iopub.status.idle": "2024-06-03T02:02:00.072855Z",
-     "shell.execute_reply": "2024-06-03T02:02:00.071738Z"
+     "iopub.execute_input": "2024-06-03T05:45:03.100817Z",
+     "iopub.status.busy": "2024-06-03T05:45:03.100521Z",
+     "iopub.status.idle": "2024-06-03T05:45:03.332050Z",
+     "shell.execute_reply": "2024-06-03T05:45:03.331200Z"
     },
     "papermill": {
-     "duration": 0.249837,
-     "end_time": "2024-06-03T02:02:00.075416",
+     "duration": 0.238289,
+     "end_time": "2024-06-03T05:45:03.334335",
      "exception": false,
-     "start_time": "2024-06-03T02:01:59.825579",
+     "start_time": "2024-06-03T05:45:03.096046",
      "status": "completed"
     },
     "tags": []
@@ -255,13 +254,13 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "c59bdc89",
+   "id": "888ebca7",
    "metadata": {
     "papermill": {
-     "duration": 0.003526,
-     "end_time": "2024-06-03T02:02:00.082703",
+     "duration": 0.002985,
+     "end_time": "2024-06-03T05:45:03.341017",
      "exception": false,
-     "start_time": "2024-06-03T02:02:00.079177",
+     "start_time": "2024-06-03T05:45:03.338032",
      "status": "completed"
     },
     "tags": []
@@ -305,14 +304,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 9.278513,
-   "end_time": "2024-06-03T02:02:00.605312",
+   "duration": 8.799772,
+   "end_time": "2024-06-03T05:45:03.762796",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2024-06-03T02:01:51.326799",
+   "start_time": "2024-06-03T05:44:54.963024",
    "version": "2.5.0"
   }
  },
